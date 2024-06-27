@@ -1,0 +1,5 @@
+# SyncQGISGeoServer
+El plugin personalizado "SyncQGISGeoServer" facilita la sincronización bidireccional de datos entre QGIS y GeoServer, permitiendo exportar capas desde QGIS a GeoServer y visualizar capas desde GeoServer en QGIS mediante servicios WFS.
+
+# Descripcion
+El plugin personalizado "SyncQGISGeoServer" facilita la sincronización bidireccional de datos entre QGIS y GeoServer. Permite exportar capas desde QGIS a GeoServer, asegurando que las actualizaciones realizadas en QGIS se reflejen automáticamente en GeoServer. Además, facilita la visualización de capas almacenadas en GeoServer directamente en QGIS mediante la integración de servicios WFS. Este plugin es ideal para usuarios que gestionan y visualizan datos geoespaciales de manera eficiente y sincronizada entre estas dos plataformas.
