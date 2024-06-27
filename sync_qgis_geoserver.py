@@ -91,20 +91,29 @@ class PluginSyncQGISGeoServer:
             return
 
     def authenticate(self):
-        # Implementa tu lógica de autenticación aquí
-        # Por ejemplo, puedes usar las credenciales self.username y self.password
-        # para realizar una solicitud a GeoServer u otro servicio de autenticación
-        # y verificar las credenciales.
-        # Devuelve True si la autenticación es exitosa, False si falla.
-        # Aquí un ejemplo básico de autenticación:
-        # Suponiendo que tu servicio de autenticación devuelve True o False
-        # basado en si las credenciales son válidas.
-        # Reemplaza este código con tu lógica de autenticación real.
-
-        # Ejemplo básico de autenticación:
-        if self.username == "admin" and self.password == "password":
-            return True
-        else:
+        # URL de GeoServer para autenticación
+        url = "http://186.153.162.11:8085/geoserver/rest/about/version.json"
+        
+        # Parámetros de autenticación
+        auth = (self.username, self.password)
+        
+        try:
+            # Realizar la solicitud GET a GeoServer para verificar las credenciales
+            response = requests.get(url, auth=auth)
+            
+            # Verificar el código de estado de la respuesta
+            if response.status_code == 200:
+                # La autenticación fue exitosa
+                print("Autenticación exitosa.")
+                return True
+            else:
+                # La autenticación falló
+                print(f"Autenticación fallida. Código de estado: {response.status_code}")
+                return False
+        
+        except requests.exceptions.RequestException as e:
+            # Manejo de errores de conexión u otras excepciones
+            print(f"Error de conexión: {e}")
             return False
 
     def show_main_dialog(self):
